@@ -32,3 +32,23 @@ exports.getSingleProduct = async(req, res, next) => {
         product
     })
 }
+
+// Update product
+exports.updateProduct = async(req, res, next) => {
+    let product = await Product.findById(req.params.id);
+    if(!product){
+        res.status(400).json({
+            success: false,
+            message: "Unable to update product"
+        })
+    }
+    product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidator: true,
+        useFindAndModify: false
+    })
+    res.status(200).json({
+        success: true,
+        product
+    })
+}
