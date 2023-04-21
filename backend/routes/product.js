@@ -22,3 +22,5 @@ router.put("/admin/product/:id", updateProduct);
 router.delete("/admin/product/:id", deleteProduct);
 
 module.exports = router;
+
+console.log("hello");
