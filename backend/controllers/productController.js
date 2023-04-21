@@ -9,10 +9,14 @@ exports.newProduct = async(req, res, next) => {
     })
 }
 
-// Get all products
-exports.getAllProduct = (req, res, next) => {
+// Get all products => /api/v1/products
+exports.getAllProduct = async(req, res, next) => {
+    const products = await Product.find()
     res.status(200).json({  
         success: true,
-        message: "This route will show all products in database"
+        count: products.length,
+        products
     })
 }
+
+// Get single product
