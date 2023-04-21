@@ -16,3 +16,6 @@ List of All created API's
    "ratings": "5",
    "price": "50"
    }
+
+5. Delete product
+   http://localhost:4000/api/v1/admin/product/644249f76a70890ecd1aba61 (DELETE)
